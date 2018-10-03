@@ -10,7 +10,6 @@ import java.util.List;
 @RequestScoped
 public class PersonEndpoint {
 
-
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public List<String> getAll(@QueryParam("orderBy") @DefaultValue("asc") String order) {
@@ -23,7 +22,6 @@ public class PersonEndpoint {
         }
         return people;
     }
-
 
     @GET
     @Path("/{id}")
