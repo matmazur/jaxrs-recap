@@ -11,7 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
-  <a href="/people">link</a>
+  <a href="/api/people">people</a>
+  <a href="/api/books">books</a>
+
   </body>
 </html>
