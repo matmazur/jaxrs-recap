@@ -1,8 +1,15 @@
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Person {
+
+    @XmlElement(name = "name")
     private String firstName;
+    @XmlElement(name = "surname")
     private String lastName;
+    @XmlTransient
     private String pesel;
     private int age;
 
