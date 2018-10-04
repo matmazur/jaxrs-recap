@@ -1,3 +1,5 @@
+package api;
+
 import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
@@ -32,7 +34,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "api.Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", pesel='" + pesel + '\'' +

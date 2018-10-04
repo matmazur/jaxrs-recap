@@ -1,9 +1,8 @@
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
+package api;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
-@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class Book {
 
@@ -48,7 +47,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "api.Book{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", isbn='" + isbn + '\'' +
