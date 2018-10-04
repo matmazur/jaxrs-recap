@@ -12,5 +12,6 @@
   </head>
   <body>
   $END$
+  <a href="/people">link</a>
   </body>
 </html>
