@@ -10,24 +10,21 @@ import java.util.List;
 @RequestScoped
 public class PersonEndpoint {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public List<String> getAll(@QueryParam("orderBy") @DefaultValue("asc") String order) {
-        List<String> people = new ArrayList<>(Arrays.asList("Person 1", "Person 2"));
 
-        if (order.equals("asc")) {
-            people.sort(String::compareTo);
-        } else {
-            people.sort(Comparator.reverseOrder());
-        }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Person> getAll() {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Jan", "Kowalski", "123456789", 23));
+        people.add(new Person("Kasia", "Abacka", "987654321", 33));
+        people.add(new Person("Wojciech", "Zumba", "132435465", 13));
         return people;
     }
 
     @GET
-    @Path("/{id}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getPerson(@PathParam("id") Long id) {
-
-        return "Person " + id;
+    @Path("/{pesel}")
+    @Produces(MediaType.APPLICATION_XML)
+    public Person getPersonByPesel(@PathParam("pesel") String pesel) {
+        return new Person("Jan", "Kowalski", pesel, 23);
     }
 }
