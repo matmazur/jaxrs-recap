@@ -2,13 +2,15 @@ package api;
 
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.NewCookie;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
+
 
 @Path("/books")
 @RequestScoped
 public class BookEndpoint {
+
+    @Context
+    private HttpHeaders headers;
 
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -39,6 +41,16 @@ public class BookEndpoint {
                 .cookie(new NewCookie("auth-token", Long.toString(System.currentTimeMillis())))
                 .header("test-header", "example value")
                 .encoding("UTF-8")
+                .build();
+    }
+
+
+    @GET
+    @Path("useragent")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response getAgent() {
+        return Response
+                .ok(headers.getHeaderString("user-agent"))
                 .build();
     }
 }
