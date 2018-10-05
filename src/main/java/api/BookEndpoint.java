@@ -1,15 +1,12 @@
 package api;
 
-
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
-
 @Path("/books")
 @RequestScoped
 public class BookEndpoint {
-
 
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -18,7 +15,6 @@ public class BookEndpoint {
         System.out.printf("%s %s %s\n", book.getTitle(), book.getAuthor(), book.getIsbn());
         return Response.ok().build();
     }
-
 
     @GET
     @Path("/{isbn}")
@@ -32,7 +28,6 @@ public class BookEndpoint {
 
     }
 
-
     @GET
     public Response getInfo() {
         return Response
@@ -42,7 +37,6 @@ public class BookEndpoint {
                 .encoding("UTF-8")
                 .build();
     }
-
 
     @Context
     private HttpHeaders headers;
@@ -55,7 +49,6 @@ public class BookEndpoint {
                 .ok(headers.getHeaderString("user-agent"))
                 .build();
     }
-
 
     @GET
     @Path("givecookie")
@@ -71,7 +64,6 @@ public class BookEndpoint {
     //can be done with HttpHeaders aswell
     // header.cookies gives map String,Cookie
 
-
     @POST
     @Path("form")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -80,5 +72,4 @@ public class BookEndpoint {
         return Response.ok("message from number " + number + ": " + message).build();
 
     }
-
 }
