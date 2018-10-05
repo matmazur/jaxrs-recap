@@ -3,6 +3,7 @@ package api;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
 @Path("/books")
@@ -26,7 +27,18 @@ public class BookEndpoint {
         if ("214235".equals(isbn))
             return Response.status(404).build();
         else
-            return Response.ok().entity(new Book("Mocktitle","MockAuthor",isbn)).build();
+            return Response.ok().entity(new Book("Mocktitle", "MockAuthor", isbn)).build();
 
+    }
+
+
+    @GET
+    public Response getInfo() {
+        return Response
+                .ok()
+                .cookie(new NewCookie("auth-token", Long.toString(System.currentTimeMillis())))
+                .header("test-header", "example value")
+                .encoding("UTF-8")
+                .build();
     }
 }
