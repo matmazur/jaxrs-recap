@@ -1,6 +1,5 @@
 package api;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -22,8 +21,12 @@ public class BookEndpoint {
     @GET
     @Path("/{isbn}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Book get(@PathParam("isbn") String isbn) {
+    public Response get(@PathParam("isbn") @DefaultValue("214235") String isbn) {
 
-        return new Book("MockTitle", "SomeAuthor", isbn);
+        if ("214235".equals(isbn))
+            return Response.status(404).build();
+        else
+            return Response.ok().entity(new Book("Mocktitle","MockAuthor",isbn)).build();
+
     }
 }
