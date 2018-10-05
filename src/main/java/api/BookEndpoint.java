@@ -1,5 +1,6 @@
 package api;
 
+
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -69,4 +70,15 @@ public class BookEndpoint {
 
     //can be done with HttpHeaders aswell
     // header.cookies gives map String,Cookie
+
+
+    @POST
+    @Path("form")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response getForm(@FormParam("message") String message, @FormParam("number") Integer number) {
+
+        return Response.ok("message from number " + number + ": " + message).build();
+
+    }
+
 }

@@ -14,5 +14,10 @@
   <a href="rest-api/resources/people">people</a>
   <a href="/rest-api/resources/books">books</a>
 
+  <form action="resources/books/form" method="POST">
+    <input type="text" name="message" placeholder="message"/>
+    <input type="number" name="number" placeholder="number" />
+    <input type="submit" value="Send" />
+  </form>
   </body>
 </html>
