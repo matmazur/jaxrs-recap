@@ -1,8 +1,11 @@
 package api;
 
 import javax.enterprise.context.RequestScoped;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import java.io.IOException;
 
 @Path("/books")
 @RequestScoped
@@ -71,5 +74,18 @@ public class BookEndpoint {
 
         return Response.ok("message from number " + number + ": " + message).build();
 
+    }
+
+    @Context
+    private HttpServletRequest request;
+
+
+    @GET
+    @Path("request")
+    public void requestInfo(@Context HttpServletResponse response) throws IOException {
+        String param = request.getParameter("param");
+        System.out.println(param);
+        String contextPath = request.getContextPath();
+        response.sendRedirect(contextPath);
     }
 }
