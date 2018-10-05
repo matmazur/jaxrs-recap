@@ -88,4 +88,16 @@ public class BookEndpoint {
         String contextPath = request.getContextPath();
         response.sendRedirect(contextPath);
     }
+
+    @POST
+    @Path("save")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response save(@FormParam("email") String email, @Context UriInfo uriInfo) {
+
+        return Response
+                .created(uriInfo
+                        .getAbsolutePathBuilder().path(email).build())
+                .build();
+
+    }
 }

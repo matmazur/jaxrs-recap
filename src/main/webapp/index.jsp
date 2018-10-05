@@ -13,5 +13,10 @@
     <input type="number" name="number" placeholder="number" />
     <input type="submit" value="Send" />
   </form>
+  <br>
+  <form action="resources/books/save" method="POST">
+    <input type="text" name="email" placeholder="email"/>
+    <input type="submit" value="Send" />
+  </form>
   </body>
 </html>
