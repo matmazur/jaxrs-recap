@@ -9,8 +9,6 @@ import javax.ws.rs.core.*;
 @RequestScoped
 public class BookEndpoint {
 
-    @Context
-    private HttpHeaders headers;
 
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -45,6 +43,9 @@ public class BookEndpoint {
     }
 
 
+    @Context
+    private HttpHeaders headers;
+
     @GET
     @Path("useragent")
     @Produces(MediaType.TEXT_PLAIN)
@@ -53,4 +54,19 @@ public class BookEndpoint {
                 .ok(headers.getHeaderString("user-agent"))
                 .build();
     }
+
+
+    @GET
+    @Path("givecookie")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getCookie(@CookieParam("auth-token") Cookie cookie) {
+
+        if (cookie != null)
+            return Response.ok(cookie).build();
+        else
+            return Response.status(404).build();
+    }
+
+    //can be done with HttpHeaders aswell
+    // header.cookies gives map String,Cookie
 }
