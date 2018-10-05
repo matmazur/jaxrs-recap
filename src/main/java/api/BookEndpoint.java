@@ -1,12 +1,8 @@
 package api;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/books")
@@ -18,8 +14,8 @@ public class BookEndpoint {
     public void saveBook(Book book) {
         System.out.println("Saving book");
         System.out.printf("%s %s %s\n", book.getTitle(), book.getAuthor(), book.getIsbn());
-        // zapisanie książki w bazie
     }
+
 
     @GET
     @Path("/{isbn}")
