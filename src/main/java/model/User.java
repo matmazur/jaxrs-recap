@@ -25,7 +25,7 @@ public class User {
     private UserDetails details;
 
 
-    public User(String firstName, String lastName, String telephone, String pesel, UserDetails details) {
+    public User(String firstName, String lastName, String telephone, String pesel) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;

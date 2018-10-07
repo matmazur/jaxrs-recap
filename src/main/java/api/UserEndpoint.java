@@ -61,8 +61,9 @@ public class UserEndpoint {
             @Context HttpServletRequest req
     ) throws IOException {
 
+        User user = new User(firstName,lastName,telephone,pesel);
         UserDetails userDetails = new UserDetails(address,country);
-        User user = new User(firstName,lastName,telephone,pesel,userDetails);
+        user.setDetails(userDetails);
 
         userRepository.add(user);
 
