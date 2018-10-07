@@ -9,7 +9,7 @@
 <body>
 <h2>User management</h2>
 
-<form action="api/users" method="POST">
+<form action="resources/users" method="POST">
   <input type="text" name="firstName" placeholder="First name" /><br />
   <input type="text" name="lastName" placeholder="Last name" /><br />
   <input type="text" name="telephone" placeholder="Telephone" /><br />
