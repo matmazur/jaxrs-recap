@@ -9,9 +9,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>List of users</title>
 </head>
 <body>
 
+<h3>Users:</h3>
+
+<ul>
+    <c:forEach items="${users}" var="user">
+        <li><c:out value="${user}"/></li>
+    </c:forEach>
+</ul>
 </body>
 </html>
