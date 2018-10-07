@@ -1,22 +1,29 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<!DOCTYPE>
 <html>
-  <head>
-    <title>JAX-RS testing field</title>
-  </head>
-  <body>
-  <a href="${pageContext.request.contextPath}resources/people">people</a>
-  <a href="${pageContext.request.contextPath}resources/books">books</a>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>User Manager</title>
+</head>
+<body>
+<h2>User management</h2>
 
-  <form action="${pageContext.request.contextPath}resources/books/form" method="POST">
-    <input type="text" name="message" placeholder="message"/>
-    <input type="number" name="number" placeholder="number" />
-    <input type="submit" value="Send" />
-  </form>
-  <br>
-  <form action="resources/books/save" method="POST">
-    <input type="text" name="email" placeholder="email"/>
-    <input type="submit" value="Send" />
-  </form>
-  </body>
+<form action="api/users" method="POST">
+  <input type="text" name="firstName" placeholder="First name" /><br />
+  <input type="text" name="lastName" placeholder="Last name" /><br />
+  <input type="text" name="telephone" placeholder="Telephone" /><br />
+  <input type="text" name="pesel" placeholder="PESEL" /><br />
+  <p>Additional info</p>
+  <input type="text" name="address" placeholder="Address" /><br />
+  <select name="country">
+    <option>Poland</option>
+    <option>Germany</option>
+    <option>France</option>
+    <option>USA</option>
+  </select><br />
+  <input type="submit" value="Add" />
+</form>
+<a href="users">User list</a>
+</body>
 </html>

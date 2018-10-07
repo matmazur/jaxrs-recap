@@ -22,7 +22,7 @@ public class UserRepository {
         TypedQuery<User> query = entityManager.createNamedQuery("User.findById",User.class);
         query.setParameter("id",id);
 
-        return query.getSingleResult();
+        return query.getResultList().get(0);
     }
 
 
