@@ -1,14 +1,17 @@
 package api;
 
 import model.User;
+import model.UserDetails;
 import model.UserRepository;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @RequestScoped
@@ -21,17 +24,46 @@ public class UserEndpoint {
     UserRepository userRepository;
 
     @GET
-    public List<User> getAll(){
-        return userRepository.findAll();
+    public Response getAll() {
+
+
+        List<User> users = userRepository.findAll();
+        if (users.isEmpty())
+            return Response.noContent().build();
+        else
+            return Response.ok(users).build();
     }
 
 
+    @GET
+    @Path("/{userId}")
+    public Response getById(@PathParam("userId") Long id) {
+
+        User user = userRepository.findById(id);
+        if (user == null)
+            return Response.noContent().build();
+        else return Response.ok(user).build();
+    }
 
 
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public void createUserForm(
+            @FormParam("firstName") String firstName,
+            @FormParam("lastName") String lastName,
+            @FormParam("telephone") String telephone,
+            @FormParam("pesel") String pesel,
+            @FormParam("country") String country,
+            @FormParam("address") String address,
+            @Context HttpServletResponse response,
+            @Context HttpServletRequest req
+    ){
 
+        UserDetails userDetails = new UserDetails(address,country);
+        User user = new User(firstName,lastName,telephone,pesel,userDetails);
 
-
-
+        userRepository.add(user);
+    }
 
 
 }
