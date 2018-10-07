@@ -12,7 +12,6 @@ import java.util.Objects;
 @XmlRootElement
 public class User {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -23,7 +22,6 @@ public class User {
     private String pesel;
     @OneToOne(cascade = CascadeType.ALL)
     private UserDetails details;
-
 
     public User(String firstName, String lastName, String telephone, String pesel) {
         this.firstName = firstName;

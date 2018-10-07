@@ -21,13 +21,11 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class UserEndpoint {
 
-
     @Inject
     UserRepository userRepository;
 
     @GET
     public Response getAll() {
-
 
         List<User> users = userRepository.findAll();
         if (users.isEmpty())
@@ -35,7 +33,6 @@ public class UserEndpoint {
         else
             return Response.ok(users).build();
     }
-
 
     @GET
     @Path("/{userId}")
@@ -46,7 +43,6 @@ public class UserEndpoint {
             return Response.noContent().build();
         else return Response.ok(user).build();
     }
-
 
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -70,7 +66,6 @@ public class UserEndpoint {
         response.sendRedirect(req.getContextPath());
     }
 
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createUser(User user, @Context UriInfo uriInfo) {
@@ -86,5 +81,4 @@ public class UserEndpoint {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
     }
-
 }

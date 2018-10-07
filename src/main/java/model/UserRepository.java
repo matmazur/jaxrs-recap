@@ -16,7 +16,6 @@ public class UserRepository {
         entityManager.persist(user);
     }
 
-
     public User findById(Long id){
 
         TypedQuery<User> query = entityManager.createNamedQuery("User.findById",User.class);
@@ -25,11 +24,8 @@ public class UserRepository {
         return query.getResultList().get(0);
     }
 
-
-
     public List<User> findAll() {
         TypedQuery<User> query = entityManager.createNamedQuery("User.findAll",User.class);
         return query.getResultList();
     }
-
 }
