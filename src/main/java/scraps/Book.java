@@ -1,4 +1,4 @@
-package api;
+package scraps;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
@@ -47,7 +47,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "api.Book{" +
+        return "scraps.Book{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", isbn='" + isbn + '\'' +
