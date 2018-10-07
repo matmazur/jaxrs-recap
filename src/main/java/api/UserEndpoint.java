@@ -12,6 +12,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.io.IOException;
 import java.util.List;
 
 @RequestScoped
@@ -57,13 +59,31 @@ public class UserEndpoint {
             @FormParam("address") String address,
             @Context HttpServletResponse response,
             @Context HttpServletRequest req
-    ){
+    ) throws IOException {
 
         UserDetails userDetails = new UserDetails(address,country);
         User user = new User(firstName,lastName,telephone,pesel,userDetails);
 
         userRepository.add(user);
+
+        response.sendRedirect(req.getContextPath());
     }
 
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createUser(User user, @Context UriInfo uriInfo) {
+        if(user != null && user.getId() == null) {
+            userRepository.add(user);
+            return Response
+                    .created(uriInfo
+                            .getAbsolutePathBuilder()
+                            .path(user.getId().toString())
+                            .build())
+                    .build();
+        } else {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
 
 }
