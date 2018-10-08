@@ -1,4 +1,4 @@
-package validators;
+package validators.beans;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;

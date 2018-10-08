@@ -1,4 +1,6 @@
-package validators;
+package validators.realValidators;
+
+import validators.annotations.Divided;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

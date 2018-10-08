@@ -1,7 +1,8 @@
-package validators;
+package validators.annotations;
 
 
 import utils.Language;
+import validators.realValidators.VulgarValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -14,7 +15,7 @@ import static java.lang.annotation.ElementType.*;
 @Target({METHOD, FIELD,CONSTRUCTOR, PARAMETER, ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NonVulgar {
-    String message () default "{validators.NonVulgar.message}";
+    String message () default "{validators.annotations.NonVulgar.message}";
     Class<?> [] groups() default {};
     Class<? extends Payload> [] payload() default {};
 

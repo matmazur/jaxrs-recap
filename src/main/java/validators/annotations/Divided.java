@@ -1,5 +1,7 @@
-package validators;
+package validators.annotations;
 
+
+import validators.realValidators.DivideValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -12,7 +14,7 @@ import java.lang.annotation.*;
 public @interface Divided {
 
 
-    String message() default "{validators.Divided.message}";
+    String message() default "{validators.annotations.Divided.message}";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 
