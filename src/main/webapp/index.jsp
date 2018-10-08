@@ -27,7 +27,7 @@
 <a href="users">User list</a>
 
 
-<form method="post" action="/message-servlet">
+<form method="post" action="message-servlet">
     <input type="text" name="title" placeholder="title">
     <input type="text" name="content" placeholder="content">
     <input type="submit" value="validate">
