@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 
 public class Message {
 
-
     @NotNull
     private String title;
 

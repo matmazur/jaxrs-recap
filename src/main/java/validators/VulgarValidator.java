@@ -1,16 +1,14 @@
 package validators;
 
 import utils.Language;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-
-
-public class VulgarValidator implements ConstraintValidator<NonVulgar,String> {
+public class VulgarValidator implements ConstraintValidator<NonVulgar, String> {
 
     private Language[] languages;
 
@@ -22,10 +20,10 @@ public class VulgarValidator implements ConstraintValidator<NonVulgar,String> {
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         boolean valid = true;
-        for(Language lang: languages) {
-            if(lang == Language.PL)
+        for (Language lang : languages) {
+            if (lang == Language.PL)
                 valid &= plFilter(value);
-            if(lang == Language.ENG)
+            if (lang == Language.ENG)
                 valid &= enFilter(value);
         }
         return valid;
@@ -37,7 +35,7 @@ public class VulgarValidator implements ConstraintValidator<NonVulgar,String> {
     }
 
     private boolean enFilter(String text) {
-        List<String> badWords = Arrays.asList("fuck","ass");
+        List<String> badWords = Arrays.asList("fuck", "ass");
         return generalFilter(text, badWords);
     }
 
