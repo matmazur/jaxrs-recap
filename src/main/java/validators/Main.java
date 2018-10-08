@@ -8,6 +8,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Set;
 
 public class Main {
@@ -31,7 +32,9 @@ public class Main {
                 14,
                 "jka@daso");
 
-        NumberBean number  = new NumberBean(2);
+        NumberBean number  = new NumberBean(3);
+
+        Locale.setDefault(Locale.ENGLISH);
 
         System.out.println("user1 violations:");
         checkViolations(user);
@@ -42,6 +45,7 @@ public class Main {
 
 
     }
+
 
     private static <T> void checkViolations(T object) {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
