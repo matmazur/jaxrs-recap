@@ -32,19 +32,19 @@ public class VulgarValidator implements ConstraintValidator<NonVulgar,String> {
     }
 
     private boolean plFilter(String text) {
-        List<String> badWords = Arrays.asList("kurka", "cholercia");
+        List<String> badWords = Arrays.asList("kurwa", "dupa");
         return generalFilter(text, badWords);
     }
 
     private boolean enFilter(String text) {
-        List<String> badWords = Arrays.asList("fak");
+        List<String> badWords = Arrays.asList("fuck","ass");
         return generalFilter(text, badWords);
     }
 
     private boolean generalFilter(String text, List<String> badWords) {
         List<String> found = badWords
                 .stream()
-                .filter(word -> text.contains(word))
+                .filter(text::contains)
                 .collect(Collectors.toList());
         return found.isEmpty();
     }
