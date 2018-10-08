@@ -6,6 +6,7 @@ import utils.Language;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
+
 import static java.lang.annotation.ElementType.*;
 
 @Documented
@@ -13,9 +14,10 @@ import static java.lang.annotation.ElementType.*;
 @Target({METHOD, FIELD,CONSTRUCTOR, PARAMETER, ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NonVulgar {
-    String message () default "Don't be so vulgar you nonchalant prick";
+    String message () default "{validators.NonVulgar.message}";
     Class<?> [] groups() default {};
     Class<? extends Payload> [] payload() default {};
 
     Language[] lang() default Language.ENG;
+
 }
