@@ -1,7 +1,7 @@
 package validators.annotations;
 
 
-import utils.Language;
+import validators.utils.Language;
 import validators.realValidators.VulgarValidator;
 
 import javax.validation.Constraint;

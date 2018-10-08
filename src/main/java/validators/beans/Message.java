@@ -1,6 +1,6 @@
 package validators.beans;
 
-import utils.Language;
+import validators.utils.Language;
 import validators.annotations.NonVulgar;
 
 import javax.validation.constraints.NotNull;

@@ -1,6 +1,6 @@
 package validators.realValidators;
 
-import utils.Language;
+import validators.utils.Language;
 import validators.annotations.NonVulgar;
 
 import java.util.Arrays;
