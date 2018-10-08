@@ -1,5 +1,6 @@
 package validators;
 
+import validators.beans.NumberBean;
 import validators.beans.User;
 
 import javax.validation.ConstraintViolation;
@@ -30,24 +31,39 @@ public class Main {
                 14,
                 "jka@daso");
 
+        NumberBean number  = new NumberBean(2);
 
         System.out.println("user1 violations:");
         checkViolations(user);
         System.out.println("user2 violations:");
         checkViolations(user2);
+        System.out.println("number violations:");
+        checkViolations(number);
 
 
     }
 
-    private static void checkViolations(User user) {
+    private static <T> void checkViolations(T object) {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<User>> violations = validator.validate(user);
-        for (ConstraintViolation<User> v : violations) {
+        Set<ConstraintViolation<T>> violations = validator.validate(object);
+        for (ConstraintViolation<T> v : violations) {
 
             System.out.println(v.getPropertyPath() + " - " + v.getInvalidValue() + " - " + v.getMessage());
         }
         factory.close();
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
