@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/products")
-public class ProductController  extends HttpServlet {
+public class ProductController extends HttpServlet {
 
     @Inject
     ProductRepo productRepo;
@@ -19,9 +19,13 @@ public class ProductController  extends HttpServlet {
 
         String name = req.getParameter("name");
         String desc = req.getParameter("description");
-        Integer quantity = Integer.valueOf(req.getParameter("quantity"));
+        Integer quantity = null;
+        try {
+            quantity = Integer.valueOf(req.getParameter("quantity"));
+        } catch (Exception ignored) {
 
-        Product product = new Product(name,desc,quantity);
+        }
+        Product product = new Product(name, desc, quantity);
 
         productRepo.add(product);
     }
