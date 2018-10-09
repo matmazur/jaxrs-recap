@@ -36,7 +36,7 @@ public class ProjectController extends HttpServlet {
         String owner = req.getParameter("owner");
         String saveType = req.getParameter("save");
 
-        if (!(date == null)) {
+
             Project project = new Project(title, date, description, owner);
 
             if (saveType.equals("Draft")) {
@@ -46,9 +46,7 @@ public class ProjectController extends HttpServlet {
                 System.out.println("Complete group chosen");
                 saveComplete(project);
             }
-        } else {
-            System.out.println("Please enter correct date");
-        }
+
         resp.sendRedirect(req.getContextPath());
     }
 
