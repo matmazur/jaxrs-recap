@@ -1,4 +1,4 @@
-package api;
+package jaxRS.api;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

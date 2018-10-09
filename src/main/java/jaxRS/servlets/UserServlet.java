@@ -1,7 +1,7 @@
-package servlets;
+package jaxRS.servlets;
 
-import model.User;
-import model.UserRepository;
+import jaxRS.model.User;
+import jaxRS.model.UserRepository;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;

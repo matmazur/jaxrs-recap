@@ -1,4 +1,4 @@
-package model;
+package jaxRS.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;

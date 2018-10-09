@@ -1,8 +1,8 @@
-package api;
+package jaxRS.api;
 
-import model.User;
-import model.UserDetails;
-import model.UserRepository;
+import jaxRS.model.User;
+import jaxRS.model.UserDetails;
+import jaxRS.model.UserRepository;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package model;
+package jaxRS.model;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
