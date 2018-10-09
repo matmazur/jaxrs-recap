@@ -28,5 +28,7 @@ public class ProductController extends HttpServlet {
         Product product = new Product(name, desc, quantity);
 
         productRepo.add(product);
+
+        resp.sendRedirect(req.getContextPath());
     }
 }
