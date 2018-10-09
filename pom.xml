@@ -17,9 +17,19 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-validator-provider-11 -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-validator-provider-11</artifactId>
+            <version>3.6.1.Final</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>3.6.1.Final</version>
         </dependency>
 
 
